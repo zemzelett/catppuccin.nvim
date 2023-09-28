@@ -678,16 +678,29 @@ hop = false
 <td>
 
 ```lua
-indent_blankline = {
-    enabled = true,
-    colored_indent_levels = false,
-},
-
+indent_blankline =  true
 ```
 
 <details> <summary>Special</summary>
 
-`colored_indent_levels` enables char highlights per indent level. Follow the instructions [here](https://github.com/lukas-reineke/indent-blankline.nvim#with-custom-gindent_blankline_char_highlight_list) to set the latter up.
+If you want to have colored indent levels, add the following to the _indent\_blankline_ config:
+
+```lua
+local highlight = {
+	"RainbowDelimiterRed",
+	"RainbowDelimiterYellow",
+	"RainbowDelimiterBlue",
+	"RainbowDelimiterOrange",
+	"RainbowDelimiterGreen",
+	"RainbowDelimiterViolet",
+	"RainbowDelimiterCyan",
+}
+
+require("ibl").setup({
+	scope = { highlight = highlight },
+	indent = { highlight = highlight },
+})
+```
 
 </details>
 
